@@ -11,54 +11,54 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
 
-    - name: Install Dependencies
-      run: |
-        sudo apt install zip
+      - name: Install Dependencies
+        run: |
+          sudo apt install zip
 
-    - name: Pack Repository Files
-      run: |
-        zip -9 -q -r module.zip ./uperf_for_kirin970/* -x ./uperf_for_kirin970/LICENSE ./uperf_for_kirin970/*.md ./uperf_for_kirin970/update.json ./uperf_for_kirin970/.*
-        cd ./uperf_for_kirin970
-        git checkout mirror
-        cd ..
-        zip -9 -q -r module_mirror.zip ./uperf_for_kirin970/* -x ./uperf_for_kirin970/LICENSE ./uperf_for_kirin970/*.md ./uperf_for_kirin970/update.json ./uperf_for_kirin970/.*
+      - name: Pack Repository Files
+        run: |
+          zip -9 -q -r module.zip ./uperf_for_kirin970/* -x ./uperf_for_kirin970/LICENSE ./uperf_for_kirin970/*.md ./uperf_for_kirin970/update.json ./uperf_for_kirin970/.*
+          cd ./uperf_for_kirin970
+          git checkout mirror
+          cd ..
+          zip -9 -q -r module_mirror.zip ./uperf_for_kirin970/* -x ./uperf_for_kirin970/LICENSE ./uperf_for_kirin970/*.md ./uperf_for_kirin970/update.json ./uperf_for_kirin970/.*
 
-    - name: Create Release
-      id: create_release
-      uses: CupOfTea696/gh-action-auto-release@v1.0.0
-      with:
-        title: "V$ver"
-        tag: "V$ver"
-        regex: "/^Release: #{ver}$/i"
-        changelog: "changelog.md"
-        changelog-entry: "V$ver"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
-     - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+      - name: Create Release
+        id: create_release
+        uses: CupOfTea696/gh-action-auto-release@v1.0.0
+        with:
+          title: "V$ver"
+          tag: "V$ver"
+          regex: "/^Release: #{ver}$/i"
+          changelog: "changelog.md"
+          changelog-entry: "V$ver"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: module.zip
-          asset_name: module.zip
-          asset_content_type: application/zip
 
-     - name: Upload Release Asset (For Mirror Version)
-        id: upload-release-asset-2
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: module_mirror.zip
-          asset_name: module_mirror.zip
-          asset_content_type: application/zip
+       - name: Upload Release Asset
+          id: upload-release-asset
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: module.zip
+            asset_name: module.zip
+            asset_content_type: application/zip
+
+       - name: Upload Release Asset (For Mirror Version)
+          id: upload-release-asset-2
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: module_mirror.zip
+            asset_name: module_mirror.zip
+            asset_content_type: application/zip
