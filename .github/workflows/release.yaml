@@ -34,7 +34,7 @@ jobs:
         with:
           title: "V$version"
           tag: "V$version"
-          regex: "(?<=Release: V)\S+"
+          regex: "(?<=Release: V)\\S+"
           changelog: "changelog.md"
           changelog-entry: "V$version"
         env:
