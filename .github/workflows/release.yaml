@@ -32,11 +32,11 @@ jobs:
         id: create_release
         uses: CupOfTea696/gh-action-auto-release@v1.0.0
         with:
-          title: "V$ver"
-          tag: "V$ver"
-          regex: "/^Release: #{ver}$/i"
+          title: "V$version"
+          tag: "V$version"
+          regex: "(?<=Release: V)\S+"
           changelog: "changelog.md"
-          changelog-entry: "V$ver"
+          changelog-entry: "V$version"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
