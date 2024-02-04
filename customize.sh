@@ -4,6 +4,6 @@
 ui_print "- 设置权限"
 chmod -R 644 "$MODPATH/*"
 chmod 755 "$MODPATH/service.sh" "$MODPATH/uperf" "$MODPATH/data-files"
-ui_print "❐ 如果您需要更改模块配置，请修改模块
+ui_print "- 如果您需要更改模块配置，请修改模块
 目录下的 config.prop，或者修改模块
 压缩包中的相应文件后重新安装。"
