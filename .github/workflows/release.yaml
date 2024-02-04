@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - V*
 
 jobs:
   release:
@@ -36,7 +34,6 @@ jobs:
           tag: "V$semver"
           changelog: "changelog.md"
           changelog-entry: "V$semver"
-          regex: "\\d+\\.\\d+\\.\\d+"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
