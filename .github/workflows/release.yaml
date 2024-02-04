@@ -27,11 +27,9 @@ jobs:
 
       - name: Pack Repository Files
         run: |
-          zip -9 -q -r module.zip ./uperf_for_kirin970/uperf_for_kirin970/* -x ./uperf_for_kirin970/uperf_for_kirin970/LICENSE ./uperf_for_kirin970/uperf_for_kirin970/*.md ./uperf_for_kirin970/uperf_for_kirin970/update.json ./uperf_for_kirin970/uperf_for_kirin970/.*
-          cd ./uperf_for_kirin970/uperf_for_kirin970
+          zip -9 -q -r module.zip ./* -x ./LICENSE ./*.md ./update.json ./.*
           git checkout mirror
-          cd ..
-          zip -9 -q -r module_mirror.zip ./uperf_for_kirin970/uperf_for_kirin970/* -x ./uperf_for_kirin970/uperf_for_kirin970/LICENSE ./uperf_for_kirin970/uperf_for_kirin970/*.md ./uperf_for_kirin970/uperf_for_kirin970/update.json ./uperf_for_kirin970/uperf_for_kirin970/.*
+          zip -9 -q -r module_mirror.zip ./* -x ./LICENSE ./*.md ./update.json ./.*
 
       - name: Create Release
         id: create_release
