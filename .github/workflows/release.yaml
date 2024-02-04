@@ -34,6 +34,7 @@ jobs:
           tag: "V$semver"
           changelog: "changelog.md"
           changelog-entry: "V$semver"
+          # regex: ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
