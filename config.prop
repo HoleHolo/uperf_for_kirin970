@@ -1,0 +1,32 @@
+# 日志开关
+# 格式：true / false
+# 意义：是否启用 Uperf 的日志输出功能。
+log=false
+
+# 日志级别
+# 格式：字符串（err / warn / info / debug / trace）
+log_level="info"
+
+# 日志路径
+# 格式：字符串
+# 意义：指定 Uperf 保存日志文件的完整路径。
+log_path="/sdcard/Uperf/$(date +%Y-%m-%d).log"
+
+# 模式切换配置文件夹位置
+# 格式：字符串
+# 意义：用于切换调度模式的配置文件存放位置设置。
+switch_dir="/sdcard/Uperf"
+
+# sfanalysis 开关
+# 格式：字符串（true / false）
+# 意义：搭配 sfanalysis 模块的 Uperf 掉帧检测模块开关。
+sf="true"
+
+# 自动重启调度程序
+# 格式：true / false
+# 说明：主程序使用较长时间后可能会不及时响应模式修改，需要重启解决。
+reload=true
+
+# 自动重启间隔时间
+# 格式：字符串（例如 30m = 30 分钟，1h = 1 小时）
+time="20m"
