@@ -24,12 +24,14 @@ done
 pgrep uperf &> /dev/null && echo "检测到 Uperf 进程，结束中..." && killall uperf
 
 # 防止服务脚本多次运行
-sh_pid=$(pgrep -f "$MODDIR/service.sh")
-if [ "$sh_pid" != "" ]; then
+sh_pids="$(pgrep -f "$0" | grep -v "$$")"
+if [ "$sh_pids" != "" ]; then
+    echo -e "原服务进程号：\n$sh_pids"
     echo "检测到原服务进程，结束中..."
-    sh_array=($(echo $sh_pid | tr '\n' ' '))
-    for i in ${sh_array[@]}; do
-        [[ "$i" != "$$" ]] && pkill $i
+    pid_arr=($(echo "$sh_pids" | tr '\n' ' '))
+    for i in "${pid_arr[@]}"; do
+        echo "结束 PID \"$i\""
+        kill -9 "$i"
     done
 fi
 
