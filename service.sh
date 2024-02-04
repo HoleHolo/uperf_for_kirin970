@@ -21,19 +21,19 @@ done
 [ ! -f "$switch_dir/perapp_powermode.txt" ] && cp "$MODDIR/data-files/perapp_powermode.txt" "$switch_dir"
 
 # 防止 Uperf 多次运行
-pgrep uperf &> /dev/null && echo "检测到 Uperf 进程，结束中..." && killall uperf
+# pgrep uperf &> /dev/null && echo "检测到 Uperf 进程，结束中..." && killall uperf
 
 # 防止服务脚本多次运行
-sh_pids="$(pgrep -f "$0" | grep -v "$$")"
-if [ "$sh_pids" != "" ]; then
-    echo -e "原服务进程号：\n$sh_pids"
-    echo "检测到原服务进程，结束中..."
-    pid_arr=($(echo "$sh_pids" | tr '\n' ' '))
-    for i in "${pid_arr[@]}"; do
-        echo "结束 PID \"$i\""
-        kill -9 "$i"
-    done
-fi
+# sh_pids="$(pgrep -f "$0" | grep -v "$$")"
+# if [ "$sh_pids" != "" ]; then
+#     echo -e "原服务进程号：\n$sh_pids"
+#     echo "检测到原服务进程，结束中..."
+#     pid_arr=($(echo "$sh_pids" | tr '\n' ' '))
+#     for i in "${pid_arr[@]}"; do
+#         echo "结束 PID \"$i\""
+#         kill -9 "$i"
+#     done
+# fi
 
 # 应用模块配置创建运行时调度配置
 rm -rf "$MODDIR/uperf_config_running.json"
