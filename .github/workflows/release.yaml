@@ -35,7 +35,8 @@ jobs:
           title: "V$semver"
           tag: "V$semver"
           changelog: "changelog.md"
-          changelog-entry: "V$version"
+          changelog-entry: "V$semver"
+          regex: "/^Release: #{semver}$/i"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
