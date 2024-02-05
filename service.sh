@@ -57,6 +57,7 @@ if [ $reload == true ]; then
     while true; do
         start_uperf
         sleep "$time"
+        killall uperf
     done
 elif [ $reload == false ]; then
     start_uperf
