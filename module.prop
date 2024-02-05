@@ -1,7 +1,7 @@
 id=uperf_for_kirin970
 name=Uperf（麒麟 970 版本）
-version=V2.1.1
+version=V2.1.2
 author=时风无痕@酷安
-versionCode=4
+versionCode=5
 description=使用 Uperf 进行系统 CPU、GPU 频率调控。
 updateJson=https://github.com/HoleHolo/uperf_for_kirin970/raw/main/update.json
