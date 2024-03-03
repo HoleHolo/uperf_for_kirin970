@@ -17,8 +17,8 @@ done
 
 # 若不存在则复制模式切换文件
 [ ! -d "$switch_dir" ] && mkdir "$switch_dir"
-[ ! -f "$switch_dir/cur_powermode.txt" ] && cp "$MODDIR/data-files/cur_powermode.txt" "$switch_dir"
-[ ! -f "$switch_dir/perapp_powermode.txt" ] && cp "$MODDIR/data-files/perapp_powermode.txt" "$switch_dir"
+[ ! -f "$switch_dir/cur_powermode.txt" ] && cp "$MODDIR/config-files/cur_powermode.txt" "$switch_dir"
+[ ! -f "$switch_dir/perapp_powermode.txt" ] && cp "$MODDIR/config-files/perapp_powermode.txt" "$switch_dir"
 
 # 防止 Uperf 多次运行
 # pgrep uperf &> /dev/null && echo "检测到 Uperf 进程，结束中..." && killall uperf
