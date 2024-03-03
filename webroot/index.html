@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>模块设置</title>
+  </head>
+  <body>
+    <header>
+      <link href="css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="css/app.css" rel="stylesheet"/>
+      <h1>模块设置</h1>
+    </header>
+    <main>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <div class="card" id="service">
+        <h2>服务</h2>
+        <h3>运行状态 <span class="badge rounded-pill text-bg-secondary">检测中</span></h3>
+        <h3>服务控制</h3>
+        <div class="btn-group">
+          <button type="button" class="btn controller-btn-group">启动服务</button>
+          <button type="button" class="btn controller-btn-group">停止服务</button>
+        </div>
+      </div>
+      <div class="card" id="settings">
+        <h2>设置</h2>
+        <h3>配置文件夹</h3>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="配置文件夹路径" aria-describedby="button-addon1">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon1">应用</button>
+        </div>
+        <h3>日志开关</h3>
+        <h3>日志路径</h3>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="日志文件路径" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">应用</button>
+        </div>
+        <h3>sfanalyser 支持</h3>
+        <h3>自动重启</h3>
+        <h3>重启间隔</h3>
+      </div>
+      <div class="card" id="log">
+        <h2>日志输出</h2>
+        <input type="text" placeholder="无" readonly="true" id="output" class="form-control" />
+      </div>
+    </main>
+  </body>
+</html>
