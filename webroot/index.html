@@ -78,8 +78,8 @@
         </div>
         <h3>重启间隔</h3>
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="间隔秒数（或用 20m 表示 20 分钟）" aria-describedby="button-addon1">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon1">应用</button>
+          <input id="interval" type="text" class="form-control" placeholder="间隔秒数（或用 20m 表示 20 分钟）" aria-describedby="button-addon1">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="apply_config('log',document.getElementById('interval').value)">应用</button>
         </div>
       </div>
       <div class="card" id="log">
