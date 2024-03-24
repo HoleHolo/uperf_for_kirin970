@@ -459,8 +459,8 @@
         "cpu.fastLimitPower": 1.06, 
         "cpu.fastLimitCapacity": 12.0, 
         "cpu.margin": 0.2, 
-        "sysfs.gpuMin": "150909000", 
-        "sysfs.gpuMax": "332000000"
+        "sysfs.gpuMin": "237143000", 
+        "sysfs.gpuMax": "415000000"
       }, 
       "idle": {
         "cpu.baseSampleTime": 0.04, 
@@ -580,7 +580,7 @@
         "cpu.fastLimitPower": 5.75, 
         "cpu.fastLimitCapacity": 0.0, 
         "cpu.margin": 0.4, 
-        "sysfs.gpuMin": "415000000", 
+        "sysfs.gpuMin": "237143000", 
         "sysfs.gpuMax": "767000000"
       }, 
       "idle": {
