@@ -21,7 +21,7 @@ jobs:
 
       - name: Pack Repository Files
         run: |
-          zip -9 -q -r module.zip ./* -x ./LICENSE ./*.md ./update.json ./.*
+          zip -9 -q -r module.zip ./* -x ./LICENSE ./*.md ./update.json ./.* ./webroot ./tools
           git clone https://github.com/HoleHolo/uperf_for_kirin970.git --depth=1 -b mirror ./mirror
           cd ./mirror
           zip -9 -q -r ../module_mirror.zip ./* -x ./LICENSE ./*.md ./update.json ./.*
