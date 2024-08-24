@@ -22,9 +22,6 @@ jobs:
       - name: Pack Repository Files
         run: |
           zip -9 -q -r module.zip ./* -x ./LICENSE ./*.md ./update.json ./.* ./webroot ./tools
-          git clone https://github.com/HoleHolo/uperf_for_kirin970.git --depth=1 -b mirror ./mirror
-          cd ./mirror
-          zip -9 -q -r ../module_mirror.zip ./* -x ./LICENSE ./*.md ./update.json ./.*
 
       - name: Create Release
         id: create_release
@@ -46,15 +43,4 @@ jobs:
             upload_url: ${{ steps.create_release.outputs.upload_url }}
             asset_path: module.zip
             asset_name: module.zip
-            asset_content_type: application/zip
-
-      - name: Upload Release Asset (For Mirror Version)
-        id: upload-release-asset-2
-        uses: actions/upload-release-asset@v1
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: module_mirror.zip
-            asset_name: module_mirror.zip
             asset_content_type: application/zip
